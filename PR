@@ -1,9 +1,10 @@
-// Variables
+// 3. Variables
+
 
 // 1.
 // Fix the error below with least amount of modification to the code
 fn main() {
-    let x: i32 = 5; // перевірка йде чи x є 5
+    let x: i32 = 5; // <- перевірка чи x є 5
     let y: i32; 
 
     assert_eq!(x, 5);
@@ -13,7 +14,7 @@ fn main() {
 // 2.
 // Fill the blanks in the code to make it compile
 fn main() {
-    let mut x = 1; // mut дозволяє змінювати x
+    let mut x = 1; // <- mut дозволяє змінювати x
     x += 2; 
     
     assert_eq!(x, 3);
@@ -29,7 +30,7 @@ fn main() {
         println!("Inner scope value of x is {} and value of y is {}", x, y);
         println!("Outer scope value of x is {} and value of y is {}", x, y); 
     }
-    // переміщено вгору ^
+    // <- переміщено вгору ^
 }
 
 // 4.
@@ -40,7 +41,7 @@ fn main() {
 
 fn define_x() {
     let x = "hello";
-    x // повернення x
+    x // <- повернення x
 }
 
 // 5.
@@ -49,11 +50,84 @@ fn main() {
     let x: i32 = 5;
     {
         let x = 12;
-        assert_eq!(x, 5);
+        assert_eq!(x, 12); // <- 5 -> 12
     }
 
-    assert_eq!(x, 12);
+    assert_eq!(x, 5); // <-  12 -> 5
 
     let x = 42;
     println!("{}", x); // Prints "42".
+}
+
+// 6.
+// Remove a line in the code to make it compile
+fn main() {
+    let mut x: i32 = 1;
+    x = 7;
+    // Shadowing and re-binding
+    let x = x; 
+    // x += 3; <- x не є mut
+
+
+    let y = 4;
+    // Shadowing
+    let y = "I can also be bound to text!"; 
+
+    println!("Success!");
+}
+
+// 7.
+// Fix the warning below
+fn main() {
+    let _x = 1; // <- x -> _x
+}
+// Warning: unused variable: `x`
+
+// 8.
+// Fix the error below with least amount of modification
+fn main() {
+    let (mut x, y) = (1, 2); // <- зробили x змінним
+    x += 2;
+
+    assert_eq!(x, 3);
+    assert_eq!(y, 2);
+
+    println!("Success!");
+}
+
+// 9. 
+// Fill the blank to make the code work
+fn main() {
+    let (x, y);
+    (x,..) = (3, 4);
+    [.., y] = [1, 2];
+    assert_eq!([x,y], [3, 2]); // <- оператор ".." вище, ігнорує 4 і 1
+
+    println!("Success!");
+} 
+
+
+// 4. Basic Types
+// 4.1 Numbers
+
+
+// 1.
+// Remove something to make it work
+fn main() {
+    let x = 5; // <- Cut: ": i32"
+    let mut y: u32 = 5;
+
+    y = x;
+    
+    let z = 10; // Type of z ? 
+
+    println!("Success!");
+}
+
+// 2.
+// Fill the blank
+fn main() {
+    let v: u16 = 38_u8 as __;
+
+    println!("Success!");
 }
