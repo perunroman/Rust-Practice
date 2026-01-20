@@ -1,0 +1,23 @@
+// 4.1 Numbers
+
+
+// 1.
+// Remove something to make it work
+fn main() {
+    let x = 5; // <- Cut: ": i32"
+    let mut y: u32 = 5;
+
+    y = x;
+    
+    let z = 10; // Type of z ? 
+
+    println!("Success!");
+}
+
+// 2.
+// Fill the blank
+fn main() {
+    let v: u16 = 38_u8 as __;
+
+    println!("Success!");
+}
