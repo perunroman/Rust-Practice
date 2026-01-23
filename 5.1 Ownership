@@ -20,3 +20,19 @@ fn main() {
     let y = &x;
     println!("{}, {}",x, y);
 }
+// 3)
+fn main() {
+    // Use as many approaches as you can to make it work
+    let x = String::from("Hello world");
+    let y = x;
+    let x = &y;
+    println!("{}, {}",x, y);
+}
+// 4)
+fn main() {
+    // Use as many approaches as you can to make it work
+    let x = "Hello world";
+    let y = x;
+    println!("{}, {}",x, y);
+}
+
