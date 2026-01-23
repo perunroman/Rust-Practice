@@ -30,7 +30,7 @@ fn main() {
     let _f: bool = false;
 
     let t = true;
-    if t {                     // <- !t -> t
+    if t {                     // <- `!t` -> `t`
         println!("Success!");
     }
 } 
@@ -40,8 +40,40 @@ fn main() {
 // Make it work
 fn main() {
     let f = true;
-    let t = true || false; // <- && -> ||
+    let t = true || false; // <- `&&` -> `||`
     assert_eq!(t, f);
+
+    println!("Success!");
+}
+
+
+// 5.
+// Make it work, don't modify `implicitly_ret_unit` !
+fn main() {
+    let _v: () = ();
+
+    let v = ();                             // <- (2, 3) -> () unit type
+    assert_eq!(v, implicitly_ret_unit());
+
+    println!("Success!");
+}
+
+fn implicitly_ret_unit() {
+    println!("I will return a ()");
+}
+
+// Don't use this one
+fn explicitly_ret_unit() -> () {
+    println!("I will return a ()");
+}
+
+
+// 6.
+// Modify `4` in assert to make it work
+use std::mem::size_of_val;
+fn main() {
+    let unit: () = ();
+    assert!(size_of_val(&unit) == 0);   // <- 4 -> 0
 
     println!("Success!");
 }
