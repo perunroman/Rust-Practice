@@ -20,6 +20,103 @@ fn main() {
 }
 
 // Replace i32 with another type
-fn print() -> i32 {
+fn print() -> () {
    println!("Success!");
+}
+
+
+// 3.
+// Solve it in two ways
+// DON'T let `println!` work
+fn main() {
+    never_return();
+
+    println!("Failed!");
+}
+
+fn never_return() -> ! {
+    // Implement this function, don't modify the fn signatures
+    
+}
+
+// 1)
+// Solve it in two ways
+// DON'T let `println!` work
+fn main() {
+    never_return();
+    panic!();
+    println!("Failed!");
+}
+
+fn never_return() -> ! {
+    // Implement this function, don't modify the fn signatures
+    
+}
+
+// 2)
+// Solve it in two ways
+// DON'T let `println!` work
+fn main() {
+    never_return();
+    loop {
+    }
+    println!("Failed!");
+}
+
+fn never_return() -> ! {
+    // Implement this function, don't modify the fn signatures
+    
+}
+
+
+// 4.
+fn main() {
+    println!("Success!");
+}
+
+fn get_option(tp: u8) -> Option<i32> {
+    match tp {
+        1 => {
+            // TODO
+        }
+        _ => {
+            // TODO
+        }
+    };
+    
+    // Rather than returning a None, we use a diverging function instead
+    never_return_fn()
+}
+
+// IMPLEMENT this function in THREE ways
+// 1)
+fn never_return_fn() -> ! {
+    panic!();
+}
+// 2)
+fn never_return_fn() -> ! {
+    loop {
+    }
+}
+// 3)
+fn never_return_fn() -> ! {
+    std::process::exit(1);
+}
+
+
+// 5.
+fn main() {
+    // FILL in the blank
+    let b = false;
+
+    let _v = match b {
+        true => 1,
+        // Diverging functions can also be used in match expression to replace a value of any value
+        false => {
+            println!("Success!");
+            panic!("we have no value for `false`, but we can panic");
+        }
+    };
+
+    println!("Exercise Failed if printing out this line!");
 }
