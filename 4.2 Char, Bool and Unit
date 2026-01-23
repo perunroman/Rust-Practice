@@ -1,1 +1,35 @@
+// 1.
+// Make it work
+use std::mem::size_of_val;
+fn main() {
+    let c1 = 'a';
+    assert_eq!(c1.len_utf8()),1); 
 
+    let c2 = '中';
+    assert_eq!(c2.len_utf8(),3); 
+
+    println!("Success!");
+} 
+// size_of_val() -> len_utf8()
+
+// 2.
+// Make it work
+fn main() {
+    let c1 = '中'; // <- <<'>> обозначають char тип
+    print_char(c1);
+} 
+
+fn print_char(c : char) {
+    println!("{}", c);
+}
+
+// 3.
+// Make println! work
+fn main() {
+    let _f: bool = false;
+
+    let t = true;
+    if t { // <- !t -> t
+        println!("Success!");
+    }
+} 
