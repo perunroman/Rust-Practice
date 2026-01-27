@@ -94,7 +94,8 @@ fn main() {
 }
 
 
-// 6.struct Point<T, U> {
+// 6.
+struct Point<T, U> {
     x: T,
     y: U,
 }
